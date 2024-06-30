@@ -1,0 +1,28 @@
+
+.navbar{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    gap:20px; 
+    padding: 2%;
+    
+}
+
+.navbar-container {
+    background-color: #4CAF50;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 15px; 
+    
+}
+
+.navbar a {
+    color: rgba(10, 137, 255, 0.911);
+    text-decoration: none;
+    
+}
+.navbar a:hover {
+   color: blueviolet;
+}
