@@ -13,7 +13,8 @@ export default function Navbar() {
         <Link className='navbar-link' to = "/Connexion" > Connexion</Link>
       </div>
       <div className='navbar-text'>
-        Arcadia
+        <span className='navbar-title'>Arcadia</span>
+       
       </div>
     </div>
    

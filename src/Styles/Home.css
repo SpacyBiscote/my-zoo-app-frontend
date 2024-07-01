@@ -1,0 +1,12 @@
+.home-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 8%;
+}
+
+
+
+.animal3 {
+    width: 50%;
+    height: 50% ;
+}

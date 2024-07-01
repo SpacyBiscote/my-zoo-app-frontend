@@ -54,3 +54,21 @@
     position: relative;
     z-index: 1;
 }
+
+/*.image-navbar {
+    width: 15%;
+    height: 15%;
+}*/
+
+
+body {
+    background-image: url('/public/image-animal-6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 20vh;
+   
+   
+}
