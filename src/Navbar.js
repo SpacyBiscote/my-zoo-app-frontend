@@ -12,6 +12,9 @@ export default function Navbar() {
         <Link className='navbar-link' to = "/Contact" > Contact</Link>
         <Link className='navbar-link' to = "/Connexion" > Connexion</Link>
       </div>
+      <div className='navbar-text'>
+        Arcadia
+      </div>
     </div>
    
   );
