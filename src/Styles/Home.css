@@ -1,34 +1,12 @@
-/*.home-container{
-    
-    display: flex;
-    justify-content: center;
-    padding-top: 8%;
-}
-
-
-
-.animal3 {
-    width: 50%;
-    height: 50% ;
-}*/
-
-/*body {
-    background-image: url('/public/image-animal-6.jpg');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-    height: 20vh;
-
-   
-}*/
-
-h1 {
+ .home-container h1 {
     padding-right: 3%;
     padding-top: 5%;
     padding-bottom: 5%;
     padding-left: 2%;
+}
+
+.home-container h3{
+    padding-left: 30%;
 }
 .home-container {
     position: relative;
@@ -52,45 +30,58 @@ h1 {
     display: flex;
     justify-content: center;
 }
-.image2 {
-    width: 25%;
-    height: 25%;
-    padding-left: 2%;
-    
-    
-}
-
-.image1 {
-    width: 40%;
-    height: 60%;
-    padding-left: 30%;
-    
-}
-.image3 {
-    width: 40%;
-    height: 60%;
-    padding-left: 30%;
-    
-}
-.habitat-1-item {
-    display: flex;
-    justify-content: stretch;
-    
-    
-}
-.soushabitat1-item p , .soushabitat2-item p{
-    width: 40%;
-    padding-left: 30%;
-    font-size: 1.3em;
- 
-}
-
 
 .presentation1-text {
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
     font-size: 1.35em;
+}
+
+.image2 {
+    width: 300px;
+    height:  250px;
+    
+}
+
+.image1 {
+    width: 300px;
+    height: 250px;
+   
+    
+}
+.image3 {
+    width: 300px;
+    height:  250px;
+  
+    
+}
+
+.image4 {
+    width: 300px;
+    height: 250px;
+    
+}
+.habitat-1-item {
+    display: flex;
+    justify-content: space-around;
+  
+}
+
+.soushabitat1-item p , .soushabitat2-item p{
+    text-align: center;
+    width: 300px;
+    font-size: 1.3em;
+    padding-left: 110px;
+  
+ 
+}
+
+
+.soushabitat3-item p{
+    width: 300px;
+    padding-left: 110px;
+    font-size: 1.3em;
 }
 
 .title1 {
@@ -123,3 +114,5 @@ h1 {
 .Bouton1:hover{
     background-color: aqua;
 }
+
+
