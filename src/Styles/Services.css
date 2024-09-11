@@ -1,0 +1,25 @@
+.service-container{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;        
+}
+
+
+.service-container-1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+.service-image {
+    width: 350px;
+    height: 250px;
+}
+.service-h2 {
+    text-align: center;
+    padding-left: 100px;
+}
+
+.service-p {
+    text-align: center;
+    padding-left: 100px;
+}
