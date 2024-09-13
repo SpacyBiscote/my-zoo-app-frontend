@@ -6,6 +6,7 @@ import Service from './Pages/Services';
 import Contact from './Pages/Contact';
 import Connexion from './Pages/Connexion';
 import Navbar from './Navbar';
+import Admins from './User/Admins';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/Service" element={<Service/>} />
           <Route path="/Contact" element={<Contact/>} />
           <Route path="/Connexion" element={<Connexion/>} />
+          <Route path="/admin"  element={<Admins />} />
         </Routes>
       </Router>
     </div>
