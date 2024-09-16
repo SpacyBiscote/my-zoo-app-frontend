@@ -1,57 +1,101 @@
-
 import React from 'react';
 import '../Styles/Habitat.css';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { click } from "@testing-library/user-event/dist/click";
 
+
 export default function Housing() {
-  const [click1 , setClick1] = useState(false);
-  const [click2 , setClick2] = useState(false);
-
-   const handleClick1 = () => {
-       setClick1(prevState => !prevState) 
    
-   }
+  //Recuperer les données Habitat
+  const [responsegetHabitat , setResponsegetHabitat] = useState(null);
+  const [responsegetanimaux ,  setResponsegetanimaux] = useState(null)
+  const [shownanimal, setShownanimal] = useState({});
 
-   const handleClick2 = () => {
-       setClick2(prevState => !prevState) 
-   
-   }
+
+  async function  gethabitat() {
+    try {
+        const getHabitat1 = await fetch("http://localhost:8082/3000/Housing" ,
+        {credentials : "include" , method : "get" , headers: {'Content-Type': 'application/json'}});
+        const getHabitat1json = await getHabitat1.json();
+        setResponsegetHabitat(getHabitat1json);
+    }catch (error){
+        console.error(error);
+    }
+  }
+  
+  useEffect(()=>{
+    gethabitat();
+  },[])
+
+
+  
+
+  //Fonction pour le  premier bouton
+  const shownAnimalgg = () => {
+    return <p>Les animaux</p>;
+  };
+  
+
+ /* const clickHabitat = (index) => {
+    setShownanimal(index);
+  }*/
+
+
+  //récupérer les données d'animaux 
+
+  async function  getanimaux(habitatId) {
+    try {
+        const getAnimaux1 = await fetch("http://localhost:8082/3000/Housing/${habitatId}/animal" ,
+        {credentials : "include" , method : "get" , headers: {'Content-Type': 'application/json'}});
+        const getAnimaux1json = await getAnimaux1.json();
+        setShownanimal(prev => ({ ...prev, [habitatId]: getAnimaux1json }));
+    }catch (error){
+        console.error(error);
+    }
+  }
+
+  
+
+  const clickHabitat = async (index, habitatId) => {
+    if (!shownanimal[habitatId]) {
+      await getanimaux(habitatId); 
+    }
+  };
+
+    //  <button className="button-habitat" onClick={() => clickHabitat(index)}>En savoir plus </button>
+      //  {shownanimal === index && shownAnimalgg()}
+
+  if(!responsegetHabitat){
+    return <p>Les données sont en cours de chargemement</p>
+  }
   return (
     <div className="habitat-container">
-    <h2>Nos habitats</h2>
-    <div className="présentation-1">
-    <img src="image2.jpg" alt="image2"className="image-2-h"/>
-    <p className="pexample">
-      Notre zoo Arcadia, fondé en 1985, est né de la passion pour la conservation de 
-      la faune et la flore. C'est un sanctuaire pour les espèces menacées. 
-      En 2005, il est devenu entièrement autonome en énergie grâce aux 
-      technologies renouvelables. Aujourd'hui, il incarne
-      notre engagement envers la conservation et l'éducation écologique.
-    </p>
-    <button onClick={handleClick1} className="button-h"><img alt="image8" src="image8.png"className="image8"/></button>
-    {click1  && (
-        <div className="ouverture-présentation1">
-            <p>Texte supplémentaire sur les habitats et les animaux.</p>
-        </div>
-    )}
-    </div>
-    <div className="présentation-2">
-            <img src="image1.jpg" alt="image1" className="image-1-h"/>
-                <p>
-                Abritant une diversité d'animaux comme les singes, les oiseaux exotiques 
-                et les reptiles, cet habitat est une représentation vivante des forêts tropicales du monde. 
-                Des plantes luxuriantes et une atmosphère humide créent un écosystème riche et vibrant.
-                </p>
-                <button onClick={handleClick2} className="button-h"><img alt="image8" src="image8.png"className="image8"/></button>
-                {click2  && (
+        <h1>Nos habitats</h1>
+        <div className="habitat-container-1"></div>
+        {responsegetHabitat.map((habitat, index) => (
+             <div key={index} className="habitat-container-2">
+              <h2>{habitat.nom}</h2>
+              <img src={habitat.image_habitat} className="image-habitat"/>
+              <p>{habitat.description}</p>
+              <button className="button-habitat" onClick={() => clickHabitat(habitat.id)}>En savoir plus</button>
+               {shownanimal[habitat.id] && (
                 <div>
-                    <p>Texte supplémentaire sur les habitats et les animaux.</p>
-                </div>
-                 )}
+                  <h3>Les animaux :</h3>
+                  <ul>
+                  {shownanimal[habitat.id].map((animal, i) => (
+                  <li key={i}>
+                    {animal.prenom} <img src={animal.animal_image} alt={animal.prenom} />
+                  </li>
+                ))}
+              </ul>
             </div>
+          )}
+              
+             </div>
+        ))}
+     
              
-        </div>
+    </div>
             
     )
     

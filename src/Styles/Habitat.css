@@ -1,0 +1,36 @@
+.habitat-container {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+}
+
+.habitat-container-1 {
+    display: flex;
+   
+    justify-content: space-around;
+}
+.habitat-container h1 {
+    margin-left: 50px;
+}
+
+.habitat-container-2 h2 {
+    margin-left: 50px;
+}
+.image-habitat {
+    height: 129px;
+    width: 172px;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.habitat-container-2 p {
+    width: 650px;
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+.button-habitat {
+    margin-left: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(59, 226, 25); 
+    font-size: 18px;
+}

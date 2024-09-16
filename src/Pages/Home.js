@@ -1,12 +1,13 @@
 import React from 'react';
 import '../Styles/Home.css'; 
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Home() {
   const navigate = useNavigate();
 
     const redirectToHabitat = () => {
-      const condition = true; // Vous pouvez ajuster votre condition ici
+      const condition = true; 
       
       if (condition) {
         navigate('/Housing');
@@ -14,6 +15,43 @@ export default function Home() {
         alert('Il y a un problème, ce n\'est pas vous mais nous.');
       }
     };
+
+    const redirectToService = () => {
+      const condition = true; 
+      
+      if (condition) {
+        navigate('/Service');
+      } else {
+        alert('Il y a un problème, ce n\'est pas vous mais nous.');
+      }
+    };
+    
+
+    const [pseudo , setPseudo] = useState("");
+    const [avis , setAvis] = useState("");
+
+    const handleChangerpseudo = (event) => {
+      setPseudo(event.target.value);
+    }
+
+    const handleChangeravistext = (event) => {
+      setAvis(event.target.value);
+    }
+    
+
+    async function fetchavis() {
+      try{
+        const responseauth = await fetch("http://localhost:8082/3000" , 
+          {credentials : "include" , method :"post" , headers: {
+            'Content-Type': 'application/json'}, body: JSON.stringify({ pseudo: pseudo, avis: avis }), }); 
+        const responsejson = await responseauth.json();
+        console.log(responsejson);
+
+      } catch(error) {
+        console.error(error);
+      }
+    }
+    
   return (
     <div className='home-container'>
       <div className="background-image"></div>
@@ -44,28 +82,21 @@ export default function Home() {
                 <img src="image3.jpg" alt="image1" className="image1"/>
                 <h3>Plaine ouverte d'Afrique </h3>
                 <p>
-                    Ce vaste habitat recrée les plaines ouvertes de l'Afrique, 
-                    où les lions et autres animaux cohabitent dans un environnement qui reflète leur habitat naturel. 
-                    Les visiteurs peuvent observer les interactions entre ces espèces 
-                    emblématiques dans un cadre similaire à celui de la savane.
+                Découvrez les plaines africaines recréées, où lions et autres animaux vivent ensemble comme dans leur habitat naturel, offrant un aperçu authentique de la savane.  
                 </p>
              </div>
              <div className="soushabitat2-item">
                 <img src="image1.jpg" alt="image1" className="image1"/>
                 <h3>Forêts Tropicale</h3>
                 <p>
-                Abritant une diversité d'animaux comme les singes, les oiseaux exotiques 
-                et les reptiles, cet habitat est une représentation vivante des forêts tropicales du monde. 
-                Des plantes luxuriantes et une atmosphère humide créent un écosystème riche et vibrant.
+                Entrez dans une reconstitution vivante des forêts tropicales, peuplée de singes, d'oiseaux exotiques et de reptiles, dans un environnement luxuriant et humide.
                 </p>
             </div>   
               <div className="soushabitat3-item">
                 <img src='image4.JPG' className='image4'alt='image4'/>
                 <h3>Désert </h3>
                 <p className="p4">
-                Cet habitat désertique recrée les vastes étendues arides où les conditions climatiques extrêmes dominent. 
-                Ici, les visiteurs peuvent découvrir des espèces fascinantes toutes adaptées à la vie dans un environnement 
-                avec peu d'eau. 
+                 Explorez un désert recréé, où des espèces fascinantes montrent leurs adaptations à des conditions de vie extrêmes et à un environnement aride.
                 </p>
               </div>
 
@@ -78,6 +109,57 @@ export default function Home() {
            </button>
 
            <h1>Nos services</h1>
+          <div className="services-cont">
+           
+            <div className="services-cont1">
+              <img src='service1.jpg' className="service-img1"/>
+              <h3>Restauration</h3>
+              </div>
+
+              <div className="services-cont2">
+               <img src='service2.jpg' className="service-img2"/>
+               <h3>Visite avec guide</h3>
+              </div>
+
+              <div className="services-cont3">
+               <img src='service3.jpg' className="service-img3"/>
+               <h3>Visite avec train</h3>
+              </div>
+              
+          </div>
+          <button className='Bouton1' onClick={redirectToService}>
+             En savoir plus sur les services
+           </button>
+           <h1>Votre avis nous intéresse</h1>
+           <div className="avisform-container">
+           <form className="avisform" onSubmit={(event) => { event.preventDefault(); fetchavis(); }}>
+            <label htmlFor="pseudo">Pseudo</label>
+            <input  value={pseudo} placeholder="Julien"  onChange={handleChangerpseudo} id="pseudo"/>
+            <label htmlFor="avis-text"></label>
+            <textarea rows={15} value={avis} onChange={handleChangeravistext} placeholder="Votre avis..." id="avis"/>
+            <button className="form-register" type="submit">Envoyé votre avis</button>
+           </form>
+           </div>
+
+           <footer className="footer-contact">
+              <div footer-contact-1>
+               <h3>Arcadia</h3>
+               <p>123 Rue des Animaux, 75000 Paris, France</p>
+                <p>Téléphone : <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+                <p><strong>Email :</strong> <a href="mailto:contact@Arcadia.fr">contact@Arcadia.fr</a></p>
+              </div>
+              <div>
+                 <h4>Horaires d'ouverture :</h4>
+                 <p>Lundi - Vendredi : 9h00 - 18h00</p>
+                  <p>Samedi - Dimanche : 10h00 - 19h00</p>
+              </div>
+              <div>
+                <p>&copy; 2024 Arcadia. Tous droits réservés.</p>
+              </div>
+   
+             </footer>
+           
+           
         </div>
        
       

@@ -13,6 +13,9 @@
 .service-image {
     width: 350px;
     height: 250px;
+    border-radius: 10px;
+    margin-left: 94px;
+
 }
 .service-h2 {
     text-align: center;
