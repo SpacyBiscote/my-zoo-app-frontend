@@ -6,3 +6,24 @@
 .Container-Admins h1 {
     margin-bottom: 50px;
 }
+
+.service-onglet{
+    display: flex;
+    justify-content: space-around;
+}
+
+.service-onglet1 ,.service-onglet2 , .service-onglet3 {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+}
+
+.habitat-onglet{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.habitat-onglet1 , .habitat-onglet2 , .habitat-onglet3 {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+} 

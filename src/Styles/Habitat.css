@@ -34,3 +34,8 @@
     background-color: rgb(59, 226, 25); 
     font-size: 18px;
 }
+
+.animaux-container img {
+    height: 129px;
+    width: 172px;
+}
