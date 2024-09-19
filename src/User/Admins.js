@@ -29,9 +29,9 @@ export default function Admins() {
       
      //modif état service 
      const handlerChangerimagemoservice = (event) => {setImagemodifservice(event.target.value);}
-    const handleChangernommodifservice = (event) => {setNommodifservice(event.target.value);}
-    const handleChangerdescriptionmodifservice = (event) => {setDescriptionmodifservice(event.target.value);}
-    const handleChangeranciennom = (event) => {setAnciennom(event.target.value);}
+     const handleChangernommodifservice = (event) => {setNommodifservice(event.target.value);}
+     const handleChangerdescriptionmodifservice = (event) => {setDescriptionmodifservice(event.target.value);}
+     const handleChangeranciennom = (event) => {setAnciennom(event.target.value);}
 
      //fetch pour ajouter un servic
     async function Ajoutservice() {
@@ -96,6 +96,8 @@ const handleChangerdescriptionmodifhabitat = (event) => { setDescriptionmodifhab
 const handleChangeranciennomhabitat = (event) => { setAnciennomhabitat(event.target.value); }
 
 
+ 
+
 async function Ajouthabitat() {
   try {
     const reponseAjouthabitat = await fetch("http://localhost:8082/3000/Admins/habitat", {
@@ -128,6 +130,100 @@ async function Modifhabitat() {
     console.error(error);
   }
 }
+
+
+
+  // États pour ajouter un animal
+ const [imageajoutanimal, setImageajoutanimal] = useState('');
+ const [nomajoutanimal, setNomajoutanimal] = useState('');
+ const [disposeajoutanimal, setDisposeajoutanimal] = useState('');
+ const [habitatajoutanimal, setHabitatajoutanimal] = useState('');
+
+ // États pour supprimer un animal
+ const [supprimanimal, setSupprimanimal] = useState('');
+
+ // États pour modifier un animal
+ const [imagemodifanimal, setImagemodifanimal] = useState('');
+ const [nommodifanimal, setNommodifanimal] = useState('');
+ const [disposemodifanimal, setDisposemodifanimal] = useState('');
+ const [habitatmodifanimal, setHabitatmodifanimal] = useState('');
+ const [anciennomanimal, setAnciennomanimal] = useState('');
+
+
+ const handlerChangerimageajoutanimal = (event) => { setImageajoutanimal(event.target.value); }
+ const handleChangenomajoutanimal = (event) => { setNomajoutanimal(event.target.value); }
+ const handleChangenomdisposeajoutanimal = (event) => { setDisposeajoutanimal(event.target.value); }
+ const handleChangerhabitatajoutanimal = (event) => { setHabitatajoutanimal(event.target.value); }
+
+// Supprimer un animal
+ const handleChangersupprimanimal = (event) => { setSupprimanimal(event.target.value); }
+
+// Modifier un animal
+ const handlerChangerimageModifanimal = (event) => { setImagemodifanimal(event.target.value); }
+ const handleChangenommodifanimal = (event) => { setNommodifanimal(event.target.value); }
+ const handleChangenomdisposemodifanimal = (event) => { setDisposemodifanimal(event.target.value); }
+ const handleChangerhabitatmodifanimal = (event) => { setHabitatmodifanimal(event.target.value); }
+ const handleChangeranciennomanimal = (event) => { setAnciennomanimal(event.target.value); }
+
+
+ async function Ajoutaniaml() {
+  try {
+    const reponseAjoutanimal = await fetch("http://localhost:8082/3000/Admins/animaux", {
+      credentials: "include", method: "post", headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({imageajoutanimal: imageajoutanimal, nomajoutanimal: nomajoutanimal, disposeajoutanimal:disposeajoutanimal,habitatajoutanimal: habitatajoutanimal }),
+    });
+    const jsonreponseAjoutanimal = await reponseAjoutanimal.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+async function Suppranimal() {
+  try {
+    const responseSuppranimal = await fetch("http://localhost:8082/3000/Admins/animaux", {credentials: "include",method: "delete", headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ supprimanimal: supprimanimal }),});
+    const jsonresponseSuppranimal = await responseSuppranimal.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function Modifanimal() {
+  try {
+    const reponseModifanimal = await fetch("http://localhost:8082/3000/Admins/animaux", { credentials: "include", method: "put",headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({imagemodifanimal: imagemodifanimal,nommodifanimal:nommodifanimal ,disposemodifanimal:disposemodifanimal, habitatmodifanimal:habitatmodifanimal, anciennomanimal:anciennomanimal}),
+    });
+    const jsonreponseModifanimal = await reponseModifanimal.json();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+//Création de profil utilisateur 
+
+
+
+ const [emailajoutuser, setEmailajoutuser] = useState('');
+ const [passwordajoutuser, setPasswordajoutuser] = useState('');
+ const [roleuser,setRoleuser] =useState('');
+
+ const handlerChangeremailajoutuser = (event) => { setEmailajoutuser(event.target.value); }
+ const handleChangerpasswordajoutuser= (event) => { setPasswordajoutuser(event.target.value); }
+ const handleChangerroleuser =(event) => {setRoleuser(event.target.value);}
+
+ async function ajoutUser() {
+  try{
+    const reponseajoutuser = await fetch("http://localhost:8082/3000/Admins/users" ,{ credentials: "include", method: "post",headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({emailajoutuser : emailajoutuser , passwordajoutuser:passwordajoutuser, roleuser :roleuser}),
+   });
+   const jsonreponseajoutuser = await reponseajoutuser.json();
+   console.log(jsonreponseajoutuser);
+  } catch(error) {
+    console.error(error);
+  }
+ }  
+
   return (
     <div className="Container-Admins">
         <h1>Vous êtes connecté en tant qu'admin</h1>
@@ -206,8 +302,67 @@ async function Modifhabitat() {
     </div>
        
  </div>
+ <h3>Onglet Animaux</h3>
+
+<div className="animal-onglet">
+
+  <div className="animal-onglet1">
+    <form className="formclass" onSubmit={(event) => { event.preventDefault();  Ajoutaniaml(); }}>
+      <label htmlFor="image">Image URL</label>
+      <textarea value={imageajoutanimal} onChange={handlerChangerimageajoutanimal} id="imageajoutanimal" />
+      <label htmlFor="nom">Nom</label>
+      <input value={nomajoutanimal} onChange={handleChangenomajoutanimal} id="nomajoutanimal" />
+      <label htmlFor="dispose">Race ID</label>
+      <input value={disposeajoutanimal} onChange={handleChangenomdisposeajoutanimal} id="disposeajoutanimal" />
+      <label htmlFor="habitat">Habitat ID</label>
+      <input value={habitatajoutanimal} onChange={handleChangerhabitatajoutanimal} id="habitatajoutanimal" />
+      <button type="submit">Ajouter</button>
+    </form>
+  </div>
+
   
-       
+   <div className="animal-onglet2">
+    <form className="formclass" onSubmit={(event) => { event.preventDefault(); Suppranimal(); }}>
+      <label htmlFor="nom">Nom de l'animal à supprimer</label>
+      <input value={supprimanimal} onChange={handleChangersupprimanimal} id="supprimanimal" />
+      <button type="submit">Supprimer</button>
+    </form>
+  </div>
+
+  <div className="animal-onglet3">
+    <form className="formclass" onSubmit={(event) => { event.preventDefault(); Modifanimal(); }}>
+      <label htmlFor="anciennom">Nom actuel de l'animal à modifier</label>
+      <input value={anciennomanimal} onChange={handleChangeranciennomanimal} id="anciennomanimal" />
+      <label htmlFor="nom">Nouveau nom de l'animal</label>
+      <input value={nommodifanimal} onChange={handleChangenommodifanimal} id="nommodifanimal" />
+      <label htmlFor="image">Image URL</label>
+      <textarea value={imagemodifanimal} onChange={handlerChangerimageModifanimal} id="imagemodifanimal" />
+      <label htmlFor="dispose">Race ID</label>
+      <input value={disposemodifanimal} onChange={handleChangenomdisposemodifanimal} id="disposemodifanimal" />
+      <label htmlFor="habitat">Habitat ID</label>
+      <input value={habitatmodifanimal} onChange={handleChangerhabitatmodifanimal} id="habitatsmodifanimal" />
+      <button type="submit">Modifier</button>
+    </form>
+  </div>
+</div>
+<h3>Création de profil utilisateur</h3>
+<div className="CreationUser">
+<form className="formclass" onSubmit={(event) => { event.preventDefault(); ajoutUser(); }}>
+  <label htmlFor="emailajoutuser">email de l'utilisateur potentiel </label>
+  <input value={emailajoutuser} onChange={handlerChangeremailajoutuser} id="emailajoutuser"/> 
+  <label htmlFor="passwordajoutuser">Mot de passe de l'utilisateur potentiel</label>
+  <input value={passwordajoutuser} onChange={handleChangerpasswordajoutuser} id="passwordajoutuser"/>
+  <label>Rôle de l'utilisateur potentiel</label>
+  <input value={roleuser} onChange={handleChangerroleuser} id="roleuser"/>
+  <button type="submit">Ajouter l'utilisateur</button>
+</form>
+<p className="rolId">Pour le rôle de l'utilisateur:</p>
+<ul className="RoleIdul">
+  <li>2 pour un vétérinaire</li>
+  <li>3 pour un employé</li>
+</ul>
+</div>
+
 </div>
   )
 }

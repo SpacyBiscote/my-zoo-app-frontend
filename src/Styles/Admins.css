@@ -2,7 +2,9 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     
 }
-
+.Container-Admins h3 {
+    margin: 65px;
+}
 .Container-Admins h1 {
     margin-bottom: 50px;
 }
@@ -27,3 +29,20 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
     border-radius: 10px;
 } 
+
+.animal-onglet{
+    display: flex;
+    justify-content: space-around;
+}
+
+.animal-onglet1 , .animal-onglet2 , .animal-onglet3 {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+} 
+
+.rolId{
+    margin-left: 70px;
+}
+.RoleIdul{
+    margin-left: 70px;
+}

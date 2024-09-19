@@ -39,3 +39,20 @@
     height: 129px;
     width: 172px;
 }
+
+.animal-info img {
+    height: 129px;
+    width: 172px;
+    border-radius: 10px;
+    margin-left: 250px;
+    margin-top: 20px;
+}
+
+.animal-info p {
+
+    margin-left: 250px;
+}
+
+.animaux-container h3 {
+    margin-left: 200px;
+}
