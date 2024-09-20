@@ -8,7 +8,7 @@ import Connexion from './Pages/Connexion';
 import Navbar from './Navbar';
 import Admins from './User/Admins';
 import { AvisProvider } from './Aviscontext';
-
+import Veto from './User/Veto';
 import Employe from './User/Employe';
 
 
@@ -26,6 +26,7 @@ function App() {
           <Route path="/Connexion" element={<Connexion/>} />
           <Route path="/admin"  element={<Admins />} />
           <Route path="/Employe"  element={<Employe/>}/>
+          <Route path="/Veto" element={<Veto/>}/>
         </Routes> 
         </AvisProvider>
        

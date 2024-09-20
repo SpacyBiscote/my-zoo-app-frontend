@@ -34,7 +34,8 @@ const Connexion = () => {
             console.log("Erreur de connexion");
           }
 
-        } catch(error) {
+        } 
+          catch(error) {
           console.error(error);
         }
       }

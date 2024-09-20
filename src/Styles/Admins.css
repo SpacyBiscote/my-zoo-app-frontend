@@ -46,3 +46,80 @@
 .RoleIdul{
     margin-left: 70px;
 }
+
+@media only screen and (max-width: 760px) {
+    .Container-Admins h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .Container-Admins h3 {
+        margin: 30px;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .service-onglet,
+    .habitat-onglet,
+    .animal-onglet {
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .service-onglet1,
+    .service-onglet2,
+    .service-onglet3,
+    .habitat-onglet1,
+    .habitat-onglet2,
+    .habitat-onglet3,
+    .animal-onglet1,
+    .animal-onglet2,
+    .animal-onglet3 {
+        width: 90%;
+        margin: 10px 0;
+        box-shadow: none; 
+    }
+
+    .rolId,
+    .RoleIdul {
+        margin-left: 20px;
+    }
+}
+
+
+@media only screen and (min-width: 760px) and (max-width: 1020px) {
+    .Container-Admins h1 {
+        font-size: 28px;
+    }
+
+    .Container-Admins h3 {
+        font-size: 22px;
+    }
+
+    .service-onglet,
+    .habitat-onglet,
+    .animal-onglet {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .service-onglet1,
+    .service-onglet2,
+    .service-onglet3,
+    .habitat-onglet1,
+    .habitat-onglet2,
+    .habitat-onglet3,
+    .animal-onglet1,
+    .animal-onglet2,
+    .animal-onglet3 {
+        width: 30%;
+        margin: 20px;
+    }
+
+    .rolId,
+    .RoleIdul {
+        margin-left: 50px;
+    }
+}

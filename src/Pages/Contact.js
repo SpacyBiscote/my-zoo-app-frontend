@@ -55,27 +55,7 @@ export default function Contact() {
       setCliked("image6.jpg")
     }
  
-    //Pour l'envoie de formulaire de contact à l'email(fictif)
-  /*  const Submitcontactfrom = (event) => {
-      event.preventDefault(); 
-
-    const templateParams = {
-      from_name: email,
-      to_name: 'contact@Arcadia.fr', 
-      subject: titre,
-      message: description,
-    }
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID')
-      .then((response) => {
-        console.log('Email envoyé avec succès', response);
-        setEmail('');
-        setTitre('');
-        setDescription('');
-      })
-      .catch((error) => {
-        console.log('Erreur lors de l\'envoi de l\'email', error);
-      });
-  };*/
+   
 
   
   return (
