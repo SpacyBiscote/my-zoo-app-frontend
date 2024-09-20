@@ -7,6 +7,9 @@ import Contact from './Pages/Contact';
 import Connexion from './Pages/Connexion';
 import Navbar from './Navbar';
 import Admins from './User/Admins';
+import { AvisProvider } from './Aviscontext';
+
+import Employe from './User/Employe';
 
 
 function App() {
@@ -14,6 +17,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar/>
+        <AvisProvider>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/Housing" element={<Housing/>} />
@@ -21,7 +25,10 @@ function App() {
           <Route path="/Contact" element={<Contact/>} />
           <Route path="/Connexion" element={<Connexion/>} />
           <Route path="/admin"  element={<Admins />} />
-        </Routes>
+          <Route path="/Employe"  element={<Employe/>}/>
+        </Routes> 
+        </AvisProvider>
+       
       </Router>
     </div>
   );

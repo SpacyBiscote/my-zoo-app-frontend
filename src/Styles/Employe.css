@@ -1,0 +1,23 @@
+.Employe-container{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.avis-container-1{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    margin: 40px;
+    padding: 10px;
+}
+
+.buttonaccept{
+    margin-left: 880px;
+}
+
+.Grammage-animal{
+    display: flex;
+    align-items: center;
+}
+
+.Grammage-animal span {
+    font-weight: 700;
+}

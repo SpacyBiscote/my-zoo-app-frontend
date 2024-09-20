@@ -1,7 +1,8 @@
 import React from 'react';
 import '../Styles/Home.css'; 
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AvisContext } from '../Aviscontext';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -51,6 +52,9 @@ export default function Home() {
         console.error(error);
       }
     }
+    const { avisAccepte } = useContext(AvisContext);
+
+    
     
   return (
     <div className='home-container'>
@@ -140,6 +144,18 @@ export default function Home() {
             <button className="form-register" type="submit">Envoyé votre avis</button>
            </form>
            </div>
+           <div>
+            {avisAccepte.length > 0 ? (
+            avisAccepte.map((avis, index) => (
+            <div key={index} className="avis-accepte-container">
+              <h4>{avis.pseudo}</h4>
+              <p>{avis.commentaire}</p>
+            </div>
+          ))
+          ) : (
+          <p>Aucun avis accepté pour le moment.</p>
+           )}
+          </div>
 
            <footer className="footer-contact">
               <div footer-contact-1>
